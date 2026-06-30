@@ -1,0 +1,23 @@
+---
+description: RealSmart suite apps, paths, stack, and cross-app auth conventions
+alwaysApply: true
+---
+
+# RealSmart suite
+
+Eight Herd apps share design language, Flux Pro UI, RealSmart shell, and Google-first login.
+
+| App | Path |
+|-----|------|
+| zebidee | `~/Herd/zebidee` |
+| staff-dash | `~/Herd/staff-dash` |
+| smaps | `~/Herd/smaps` |
+| smartbadges | `~/Herd/smartbadges` |
+| smartcops | `~/Herd/smartcops` |
+| sos2 | `~/Herd/sos2` |
+| plan2do | `~/Herd/plan2do` |
+| smartdocs | `~/Herd/smartdocs` |
+
+**Auth:** Per-app sessions (not SSO). Google via Socialite + fwd.host. See `smartbadges/docs/auth.md`.
+
+**sars** (`~/Herd/sars`) is separate — no suite switcher.

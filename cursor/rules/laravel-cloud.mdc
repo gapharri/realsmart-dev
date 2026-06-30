@@ -1,0 +1,35 @@
+---
+description: Laravel Cloud deploy, env vars, and Flux Pro build auth for RealSmart apps
+alwaysApply: false
+---
+
+# Laravel Cloud (RealSmart suite)
+
+## CLI
+
+```bash
+composer global require laravel/cloud-cli
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+cloud auth   # browser — run in your terminal
+```
+
+Per-repo: `cloud repo:config` (commit `.cloud/config.json`).
+
+| Task | Command |
+|------|---------|
+| Deploy | `cloud deploy` |
+| Logs | `cloud environment:logs` |
+| Artisan | `cloud command:run "php artisan migrate --force"` |
+
+## Flux Pro on Cloud
+
+Env vars: `FLUX_USERNAME`, `FLUX_LICENSE_KEY`  
+Build command (before `composer install`):
+
+```bash
+composer config http-basic.composer.fluxui.dev "$FLUX_USERNAME" "$FLUX_LICENSE_KEY"
+```
+
+## GitHub org
+
+`gapharri/*` — smartcops, staff-dash, smartdocs, smaps, smartbadges, zebidee, plan2do, sos2, sars

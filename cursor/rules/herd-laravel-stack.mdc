@@ -1,0 +1,29 @@
+---
+description: Laravel + Livewire + Tailwind + Flux stack defaults for Herd apps
+alwaysApply: true
+---
+
+# Herd Laravel stack
+
+Use current stable versions of **Laravel**, **Livewire**, and **Tailwind** already in the project (`composer.json`, `package.json`). Do not downgrade or introduce legacy patterns without reason.
+
+**Database:** Herd Pro MySQL locally (`herd.yml`, `DB_CONNECTION=mysql`). See `.cursor/rules/herd-pro-mysql.mdc`.
+
+## UI
+
+- Prefer **Flux Pro** (`livewire/flux-pro`) for interactive UI — see `.cursor/rules/flux-pro-ui.mdc`.
+- Use `flux:field`, `flux:input`, `flux:select`, `flux:table`, `flux:modal` for forms, listings, and dialogs.
+- Keep the **RealSmart shell** (`x-nav.rail-link`, `x-nav.sidebar-link`) — do not replace with `flux:sidebar` / `flux:navbar`.
+- Use native HTML + Tailwind only for layout grid shells and read-only display where Flux adds no value.
+- For dropdowns that must open downward (not native `<select>` flip), use `flux:dropdown` + `flux:menu.radio.group` with `position="bottom"`.
+- Keep Livewire actions inside the component root — do not `@push` wire-bound controls into the layout outside the component.
+
+## Rich text
+
+- **New** rich-text fields: prefer `flux:editor` (Pro).
+- **Existing TipTap** editors (plan2do `rich-text-editor`, SMAPS `content-blocks.js`): keep as-is; do not migrate to Flux unless asked.
+
+## Conventions
+
+- Match existing RealSmart tokens (`rs-*`) and app layout patterns in each project.
+- Minimize scope; match surrounding code style.

@@ -1,0 +1,29 @@
+---
+description: Herd Pro MySQL local dev — parity with Laravel Cloud, herd.yml, migrations
+alwaysApply: true
+---
+
+# Herd Pro MySQL
+
+This app uses **Herd Pro MySQL** locally (not SQLite, not Homebrew MySQL).
+
+## Config
+
+- Manifest: `herd.yml` — run `herd init -n` after cloning.
+- Host: `127.0.0.1:3306`, user `root`, empty password.
+- Database name: see `.env` `DB_DATABASE` (matches app — e.g. `smartcops`, `staff_dash`).
+- Tests: `phpunit.xml` uses SQLite `:memory:`.
+
+## Commands
+
+```sh
+herd init -n
+herd db
+php artisan migrate:fresh --seed
+```
+
+## Migration rules
+
+- Unique index names ≤ 64 characters.
+- MySQL: drop FKs before dropping unique indexes they depend on.
+- No `PRAGMA` in seeders — use `Schema::disableForeignKeyConstraints()`.

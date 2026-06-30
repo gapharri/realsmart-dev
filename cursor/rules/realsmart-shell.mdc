@@ -1,0 +1,22 @@
+---
+description: RealSmart app shell — rail, sidebar, suite switcher, and navigation conventions
+alwaysApply: true
+---
+
+# RealSmart app shell
+
+All authenticated RealSmart apps share one layout shell. **Extend it; do not replace it.**
+
+## Layout zones (left to right)
+
+1. **Suite switcher** — `x-nav.suite-switcher`
+2. **Icon rail** — `w-14` dark rail; `x-nav.rail-link` for top-level areas
+3. **Collapsible sidebar** — `x-nav.sidebar-link`
+4. **Main content** — header + scrollable page body
+
+Canonical shell sync: `~/Developer/realsmart-shell/bin/sync.sh`
+
+## Do not
+
+- Build a different nav pattern (Flux sidebar as primary chrome)
+- Hard-code suite URLs — use `config/realsmart.php` and env vars

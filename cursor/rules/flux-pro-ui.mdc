@@ -1,0 +1,28 @@
+---
+description: Use Flux Pro components for Livewire UI (installed in all Herd apps)
+globs: resources/views/**/*.blade.php,app/Livewire/**/*.php
+alwaysApply: false
+---
+
+# Flux Pro UI
+
+This project has **Flux Pro** (`livewire/flux-pro`). Prefer Pro components over custom HTML/Alpine when building or changing UI.
+
+## Pro suite (use natively)
+
+- **Navigation chrome (inner pages only):** `flux:header`, `flux:tabs`, `flux:breadcrumbs` — not for replacing RealSmart rail/sidebar
+- **Data layouts:** `flux:table`, `flux:pagination`
+- **Interactive:** `flux:command`, `flux:select variant="listbox"`, `flux:date-picker`, `flux:time-picker`, `flux:pillbox`, `flux:autocomplete`
+- **Feedback:** `flux:toast`, `flux:modal`, `flux:callout`
+- **Rich text:** `flux:editor` (new fields only)
+- **Forms:** `flux:field`, `flux:label`, `flux:input`, `flux:textarea`, `flux:select`, `flux:checkbox`, `flux:radio`, `flux:switch`, `flux:error`
+
+## Do not migrate
+
+- RealSmart shell: `x-nav.rail-link`, `x-nav.sidebar-link`, `x-nav.suite-switcher`
+- PDF export templates (keep HTML `<table>` for DomPDF)
+- Existing TipTap editors (plan2do, SMAPS content blocks)
+
+## Layout
+
+- Layouts must include `@fluxAppearance` in `<head>` and `@fluxScripts` before `</body>`.
